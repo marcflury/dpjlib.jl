@@ -1,9 +1,9 @@
 function v_asian_sample(X₀, K, r, σ, m, n)
     Δ = 1/365
-    X = X₀ * exp((r-σ^2/2)*(m*Δ) + σ*√(m*Δ)*randn())
+    X = X₀ * exp((0-σ^2/2)*(m*Δ) + σ*√(m*Δ)*randn())
     x̂ = zero(X)
     for i in 1:n
-        X *= exp((r-σ^2/2)*Δ + σ*√Δ*randn())
+        X *= exp((0-σ^2/2)*Δ + σ*√Δ*randn())
         x̂ += X
     end
     exp(-r*(m+n)*Δ)*max(x̂/n - K, 0)
